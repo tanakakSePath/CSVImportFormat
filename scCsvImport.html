@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="CSV取込（代理入力用）" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <!-- ファイル選択 -->
+            <lightning-input 
+                type="file"
+                label="CSVファイルを選択"
+                accept=".csv"
+                onchange={handleFileChange}>
+            </lightning-input>
+
+            <!-- 実行ボタン -->
+            <lightning-button 
+                class="slds-m-top_medium"
+                label="取込開始"
+                onclick={handleImport}
+                disabled={isDisabled}>
+            </lightning-button>
+
+            <!-- メッセージ表示 -->
+            <template if:true={message}>
+                <div class="slds-m-top_medium">
+                    {message}
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
